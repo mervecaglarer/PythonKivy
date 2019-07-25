@@ -1,0 +1,30 @@
+#:import utils kivy.utils
+<ListScreen>:
+    BoxLayout:
+        orientation:"vertical"
+        size_hint:(1,.2)
+        pos_hint:{'top': 1}
+        Label:
+            canvas.before:
+                Color:
+                    rgba:utils.get_color_from_hex('#a80b00')
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text:"ToDoList"
+            font_size: 100
+            size_hint:(1,.2)
+            font_name:"C:\\Users\\Merve\\AppData\\Local\\Microsoft\\Windows\\Fonts\\Bangers-Regular.ttf"
+
+
+    BoxLayout:
+        orientation:"vertical"
+        size_hint:(1,.1)
+        pos_hint:{'bottom': 1}
+        Button:
+            text: 'back'
+            font_size: 30
+            font_name:"C:\\Users\\Merve\\AppData\\Local\\Microsoft\\Windows\\Fonts\\Bangers-Regular.ttf"
+            on_press: root.manager.current = 'MenuScreen'
+
+

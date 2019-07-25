@@ -1,0 +1,72 @@
+#:import utils kivy.utils
+<MenuScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 3
+        BoxLayout:
+            size_hint_y: .4
+            Label:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex('#a80b00')
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                text: "ToDoList"
+                font_size: 100
+                font_name: "C:\\Users\\Merve\\AppData\\Local\\Microsoft\\Windows\\Fonts\\Bangers-Regular.ttf"
+
+        BoxLayout:
+            orientation: "horizontal"
+            GridLayout:
+                cols: 2
+                Label:
+                    text: "Write Task:"
+                    font_size: 35
+                    font_name: "C:\\Users\\Merve\\AppData\\Local\\Microsoft\\Windows\\Fonts\\Bangers-Regular.ttf"
+                    canvas.before:
+                        Color:
+                            rgba: utils.get_color_from_hex('#2a3f54')
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                TextInput:
+                    id: task
+                    multiline: False
+                    font_size: 35
+                    font_name: "C:\\Users\\Merve\\AppData\\Local\\Microsoft\\Windows\\Fonts\\DarkerGrotesque-ExtraBold.ttf"
+                Label:
+                    text: "Set Deadline:"
+                    font_size: 35
+                    font_name: "C:\\Users\\Merve\\AppData\\Local\\Microsoft\\Windows\\Fonts\\Bangers-Regular.ttf"
+                    canvas.before:
+                        Color:
+                            rgba: utils.get_color_from_hex('#2a3f54')
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                Button:
+                    id: deadline
+                    multiline:False
+                    font_size: 35
+                    font_name:"C:\\Users\\Merve\\AppData\\Local\\Microsoft\\Windows\\Fonts\\DarkerGrotesque-ExtraBold.ttf"
+                    on_release:root.manager.current="main"
+            BoxLayout:
+                orientation: "vertical"
+                size_hint_x: .4
+                Button:
+                    text: 'Add'
+                    font_size: 50
+                    font_name:"C:\\Users\\Merve\\AppData\\Local\\Microsoft\\Windows\\Fonts\\Bangers-Regular.ttf"
+                    on_press:
+                        root.add()
+        BoxLayout:
+            orientation:"horizontal"
+            size_hint_y:.3
+            Button:
+                text: 'List'
+                font_size: 60
+                font_name:"C:\\Users\\Merve\\AppData\\Local\\Microsoft\\Windows\\Fonts\\Bangers-Regular.ttf"
+                on_press: root.manager.current = 'ListScreen'
+
+

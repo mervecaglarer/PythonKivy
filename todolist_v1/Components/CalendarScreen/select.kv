@@ -1,0 +1,95 @@
+#:import utils kivy.utils
+<FlatButton@ButtonBehavior+Label>:
+<Select>:
+    size_hint_y:.4
+    orientation: "vertical"
+	lbl_: lbl
+	btn: btn
+	day: day1
+	month: month1
+	lb2_: lb2
+	btn2: btn2
+    hour: hour1
+    minute: minute1
+    canvas.before:
+        Color:
+            rgba:utils.get_color_from_hex('#2a3f54')
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    BoxLayout:
+        size_hint_y:.2
+        Label:
+            id: lbl
+            text:'Select Day/Month:'
+            font_size:"40sp"
+        Label:
+            id:lb2
+            text:"Select Clock:"
+            font_size:"40sp"
+    BoxLayout:
+        spacing:5
+        padding:30
+        orientation:"horizontal"
+
+
+        BoxLayout:
+            size_hint:.3,.5
+            Spinner:
+                id: day1
+                halign: 'center'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_x:.25
+                text:'00'
+                on_press: root.get_day()
+            Spinner:
+                id: month1
+                halign: 'center'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_x:.25
+                text:'00'
+                on_press: root.get_month()
+            FlatButton:
+                id: btn
+                font_size:"40sp"
+                size_hint_x:.5
+                on_press: lbl.text = 'Selected Date: '
+                on_release: lbl.text = lbl.text + day1.text + "/" + month1.text
+                Image:
+                    source: "add.png"
+                    size: self.parent.size
+                    pos: self.parent.pos
+
+        BoxLayout:
+            size_hint:.3,.5
+            Spinner:
+                id: hour1
+                halign: 'center'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_x:.25
+                text:'00'
+                on_press: root.get_hour()
+            Spinner:
+                id: minute1
+                halign: 'center'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_x:.25
+                text:'00'
+                on_press: root.get_minute()
+            FlatButton:
+                id: btn2
+                font_size:"40sp"
+                size_hint_x:.5
+                on_press: lb2.text = 'Selected Time: '
+                on_release: lb2.text = lb2.text + hour1.text + "." + minute1.text
+                Image:
+                    source: "add.png"
+                    size: self.parent.size
+                    pos: self.parent.pos
+
+
+

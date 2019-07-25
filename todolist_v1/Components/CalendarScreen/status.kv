@@ -1,0 +1,18 @@
+#:import utils kivy.utils
+#:from datetime import time
+<Status>:
+    size_hint_y:.2
+    canvas.before:
+        Color:
+            rgba:utils.get_color_from_hex('#cc7518')
+        Rectangle:
+            size:self.size
+            pos:self.pos
+	Label:
+		id: yo
+		text:'Current Date and Time:'
+		font_size:"30sp"
+	Label:
+		id: _tnd
+		text: app.time
+		font_size:"30sp"
