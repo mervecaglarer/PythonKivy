@@ -1,0 +1,48 @@
+#:import utils kivy.utils
+<FlatButton@ButtonBehavior+Label>:
+
+<ListScreen>:
+    BoxLayout:
+        id:main
+        orientation:"vertical"
+        BoxLayout:
+            orientation : "horizontal"
+            size_hint_y:.2
+            canvas.before:
+                Color:
+                    rgba:utils.get_color_from_hex('#2a3f54')
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label:
+                text:"Tasks              Deadlines"
+                font_size: 60
+                font_name:"C:\\Users\\Merve\\AppData\\Local\\Microsoft\\Windows\\Fonts\\Bangers-Regular.ttf"
+
+        BoxLayout:
+            ScrollView:
+                BoxLayout:
+                    id:left
+                    size_hint_y:None
+                    spacing:10
+                    orientation:"vertical"
+                    do_scroll_y:True
+                    height: self.minimum_height
+                    size:self.parent.size
+
+        BoxLayout:
+            orientation:"vertical"
+            size_hint_y: None
+            canvas.before:
+                Color:
+                    rgba:utils.get_color_from_hex('#2a3f54')
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            FlatButton:
+                id:back
+                on_press: root.manager.current = 'HomeScreen'
+                Image:
+                    source: 'back.png'
+                    size: self.parent.size
+                    pos: self.parent.pos

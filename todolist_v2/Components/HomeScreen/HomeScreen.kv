@@ -1,0 +1,84 @@
+#:import utils kivy.utils
+<FlatButton@ButtonBehavior+Label>:
+
+<HomeScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 3
+        BoxLayout:
+            size_hint_y: .2
+            Label:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex('#2a3f54')
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                text: "ToDoList"
+                font_size: 100
+                font_name: "C:\\Users\\Merve\\AppData\\Local\\Microsoft\\Windows\\Fonts\\Bangers-Regular.ttf"
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_y:.3
+            canvas.before:
+                Color:
+                    rgba: utils.get_color_from_hex('#ffffff')
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            BoxLayout:
+                orientation:"horizontal"
+                BoxLayout:
+                    size_hint_x:2
+                    orientation: "vertical"
+                    spacing: 3
+                    TextInput:
+                        id: task
+                        focus: True
+                        font_size: 35
+                        font_name: "C:\\Users\\Merve\\AppData\\Local\\Microsoft\\Windows\\Fonts\\DarkerGrotesque-ExtraBold.ttf"
+                        multiline: False
+                        hint_text: "Task"
+                    TextInput:
+                        id: deadline
+                        focus:True
+                        font_size: 35
+                        font_name: "C:\\Users\\Merve\\AppData\\Local\\Microsoft\\Windows\\Fonts\\DarkerGrotesque-ExtraBold.ttf"
+                        multiline: False
+                        hint_text: "Deadline(dd/mm)"
+                BoxLayout:
+                    orientation:"vertical"
+                    FlatButton:
+                        id:add
+                        on_press:root.add()
+                        on_release:root.manager.current="ListScreen"
+                        canvas.before:
+                            Color:
+                                rgba: utils.get_color_from_hex('#ffffff')
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                        Image:
+                            source: 'add.png'
+                            size: self.parent.size
+                            pos: self.parent.pos
+
+        BoxLayout:
+            orientation:"horizontal"
+            size_hint_y:.3
+            canvas.before:
+                Color:
+                    rgba: utils.get_color_from_hex('#2a3f54')
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            FlatButton:
+                id: list
+                on_press:root.manager.current="ListScreen"
+                Image:
+                    source: 'list.png'
+                    size: self.parent.size
+                    pos: self.parent.pos
+
+
